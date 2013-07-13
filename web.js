@@ -4,10 +4,11 @@ var buf = new Buffer(256);
 
 var app = express.createServer(express.logger());
 
-var bufLen = buf.write(fs.readFileSync("index.html",'UTF8'));
+//var bufLen = buf.write(fs.readFileSync("index.html",'UTF8'));
 
 app.get('/', function(request, response) {
-  response.send(buf.toString('utf8', 0, bufLen));
+//  response.send(buf.toString('utf8', 0, bufLen));
+    response.send(fs.readFileSync("index.html",'UTF8'))
 });
 
 var port = process.env.PORT || 5000;
